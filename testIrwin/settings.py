@@ -35,7 +35,7 @@ print(get_secret("test"))
 SECRET_KEY = 'django-insecure-xiy1*=7vicy(6e@e%h!n3!@5csbu4l)4)z4h+g1beb(nw#j3z='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
