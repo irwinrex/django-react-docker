@@ -6,7 +6,7 @@ services:
       context: ../
     container_name: app
     volumes:
-        - ../secrets_old.json:/app/secrets.json
+        - ../secrets.json:/app/secrets.json
     #   - ../django-local-efs:/var/www/django-local-efs
     ports:
       - 7000:7000

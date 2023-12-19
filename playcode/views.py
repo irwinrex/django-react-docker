@@ -7,4 +7,4 @@ class HomeView(APIView):
     #authentication_classes = [EquipoJWTAuthenticationClass]
     #permission_classes = (IsAuthenticated,)
     def get(self, request):
-        return Response("Django blue green", status=200)
+        return Response("Django Welcome You", status=200)
