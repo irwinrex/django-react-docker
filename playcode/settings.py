@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import json
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,3 +133,20 @@ REST_FRAMEWORK = {
 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
 'DEFAULT_SCHEMA_CLASS':  'rest_framework.schemas.coreapi.AutoSchema',
 }
+
+with open('secrets.json') as secrets_file:
+    secrets = json.load(secrets_file)
+
+
+def get_secret(setting, secret=secrets):
+    """Get secret setting or fail with ImproperlyConfigured"""
+    try:
+        return secret[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
+
+#Parsing True and False as boolean
+def parse(string):
+    
+    boolean_value = {'True': True, 'False': False}
+    return boolean_value.get(string, string)
