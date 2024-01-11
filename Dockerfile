@@ -1,5 +1,5 @@
 ###############
-# BUILD IMAGES #
+# DOCKER IMAGES #
 ###############
 FROM python:3.10
 
@@ -20,19 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY . /app
-
-#Collect Static Files
-# RUN python manage.py collectstatic
-
-###############
-# FINAL IMAGE #
-###############
-
-# FROM python:3.10-slim
-
-# Copy Binary files from the BASE Image
-# COPY --from=builder /app /app
-# COPY --from=builder /usr /usr
 
 # create the app user
 RUN addgroup --system python && adduser --system --group python
