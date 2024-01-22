@@ -5,7 +5,7 @@ FROM python:3.10
 
 # Set the working directory
 WORKDIR /app
-`
+
 # Remove current pip version from python image
 RUN rm -rvf /usr/local/lib/python3.10/site-packages/pip-23.0.1.dist-info
 
