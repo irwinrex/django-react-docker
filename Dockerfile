@@ -21,9 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . /app
 
-#Collect Static Files
-# RUN python manage.py collectstatic
-
 # create the app user
 RUN addgroup --system python && adduser --system --group python
 RUN chown -R python:python /app
