@@ -11,7 +11,7 @@
 
 This Repo Contains Dockerfiles and Kubernetes Files
 
-## Linux
+## Linux Commands
 
 ## --> Docker Run
 ```
