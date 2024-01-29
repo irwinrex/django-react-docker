@@ -4,3 +4,4 @@ Dockerfile.nginx
 Dockerfile.prod
 Dockerfile
 README.md
+# secrets.json

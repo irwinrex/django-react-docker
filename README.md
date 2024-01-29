@@ -62,6 +62,16 @@ for the next build :
 
 ## Kubernetes
 
+k8 : minikube
+
+```
+cd /devops
+minikube start
+eval $(minikube docker-env)
+docker build -t dj:latest . --no-cache
+kubectl apply -f kubernetes/deployment.yml
+kubectl apply -f kubernetes/service.yml
+```
 Loading...😉
 
 You're Friendly DevOps

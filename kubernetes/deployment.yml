@@ -14,10 +14,26 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: dj:latest #image name
+        image: dj:latest # Replace with your Docker image name and tag
         resources:
           limits:
-            memory: "500Mi"
+            memory: "500Mi" # Adjust the memory limit as per your requirements
             cpu: "1"
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /app/secrets.json
         ports:
         - containerPort: 7000
+        readinessProbe:
+            httpGet:
+              path: /home  # Adjust the path based on your application's health check endpoint
+              port: 7000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /home  # Adjust the path based on your application's health check endpoint
+            port: 7000
+          initialDelaySeconds: 15
+
+
