@@ -19,9 +19,6 @@ spec:
           limits:
             memory: "500Mi" # Adjust the memory limit as per your requirements
             cpu: "1"
-        volumeMounts:
-        - name: secret-volume
-          mountPath: /app/secrets.json
         ports:
         - containerPort: 7000
         readinessProbe:
