@@ -6,9 +6,16 @@
 </table>
 </center>
 
-# BASIC DJANGO APP
-
-[![Build status](https://ci.appveyor.com/api/projects/status/m07cnunnni8w82o5?svg=true)](https://github.com/codeplays/devops.git)
+<table>
+  <tr>
+    <td align="left"><a href="README.md"><img src="images/linux.png" width="170px;" height="100px;" alt="linux" /><br /><b></b></a></td>
+    <td align="left"><a href="README.md"><img src="images/docker.png" width="180px;" height="100px;" alt="docker" /><br /><b></b></a></td>
+    <td align="left"><a href="README.md"><img src="images/docker-compose.png" width="100px;" height="120px;" alt="compose" /><br/><b></b></td>
+    <td align="left"><a href="README.md"><img src="images/helm.png" width="100px;" height="100px;" alt="helm" /><br /><b></b></a>
+    <td align="left"><a href="README.md"><img src="images/swarm.png" width="120px;" height="100px;" alt="DOCKER SWARM" /><br /><b></b></a></td>
+    <td align="left"><a href="README.md"><img src="images/kubernetes.png" width="100px;" height="100px;" alt="KUBERNETES" /><br /><b></b></a></td>
+  </tr>
+</table>
 
 ## Features
 - DOCKER COMPOSE 
@@ -19,13 +26,7 @@
 
 This Repo Contains Dockerfiles and Kubernetes Files
 
-## Linux Commands
-
-<table>
-  <tr>
-    <td align="left"><a href="README.md"><img src="images/docker.png" width="200px;" height="100px;" alt="docker" /><br /><b>DOCKER COMMANDS</b></a></td>
-  </tr>
-</table>
+## Docker Commands
 
 ```
 git clone https://github.com/codeplays/devops.git
@@ -37,11 +38,8 @@ docker rm -f <container-name>
 ```
 This is a simple docker,uwsgi and django deployment application is running on 7000 port
 
-<table>
-  <tr>
-    <td align="left"><a href="README.md"><img src="images/docker-compose.png" width="100px;" height="120px;" alt="compose" /><br /><b>DOCKER COMPOSE COMMANDS</b></a></td>
-  </tr>
-</table>
+
+## Docker Compose Commands
 
 ```
 git clone https://github.com/codeplays/devops.git
@@ -58,14 +56,7 @@ docker compose down
 
 This is a docker,uwsgi,nginx and django deployment application is running on 80 port
 
-
-
-<table>
-  <tr>
-    <td align="left"><a href="README.md"><img src="images/swarm.png" width="100px;" height="90px;" alt="DOCKER SWARM" /><br /><b>DOCKER SWARM COMMANDS</b></a></td>
-  </tr>
-</table>
-
+## Docker Swarm Commands
 
 ```
 git clone https://github.com/codeplays/devops.git
@@ -82,11 +73,7 @@ This is a docker swarm deployemnt. it contains docker,uwsgi,nginx and django. Th
 for the next build : 
 ```docker service update --image dj:new --force myapp_api```
 
-<table>
-  <tr>
-    <td align="left"><a href="README.md"><img src="images/kubernetes.png" width="100px;" height="100px;" alt="KUBERNETES" /><br /><b>KUBERNETES COMMANDS</b></a></td>
-  </tr>
-</table>
+## Kubernetes Commands
 
 k8 : minikube
 
