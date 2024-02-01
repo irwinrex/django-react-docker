@@ -18,7 +18,7 @@ spec:
         resources:
           limits:
             memory: "500Mi" # Adjust the memory limit as per your requirements
-            cpu: "1"
+            cpu: "1"  # Adjust the cpu limit as per your requirements
         ports:
         - containerPort: 7000
         readinessProbe:

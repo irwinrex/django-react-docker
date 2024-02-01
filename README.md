@@ -1,3 +1,11 @@
+<center>
+<table>
+  <tr>
+    <td align="center"><a href="README.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
+  </tr>
+</table>
+</center>
+
 # BASIC DJANGO APP
 
 [![Build status](https://ci.appveyor.com/api/projects/status/m07cnunnni8w82o5?svg=true)](https://github.com/codeplays/devops.git)
@@ -60,6 +68,8 @@ This is a docker swarm deployemnt. it contains docker,uwsgi,nginx and django. Th
 for the next build : 
 ```docker service update --image dj:new --force myapp_api```
 
+kubernetes
+Kubernetes
 ## Kubernetes
 
 k8 : minikube
