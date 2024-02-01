@@ -1,7 +1,7 @@
 <center>
 <table>
   <tr>
-    <td align="center"><a href="README.md"><img src="images/devops.png" width="200px;" height="200px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
+    <td align="center"><a href="README.md"><img src="images/devops.png" width="150px;" height="150px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
   </tr>
 </table>
 </center>
@@ -23,7 +23,7 @@ This Repo Contains Dockerfiles and Kubernetes Files
 
 <table>
   <tr>
-    <td align="left"><a href="README.md"><img src="images/docker.png" width="300px;" height="100px;" alt="docker" /><br /><b>DOCKER COMMANDS</b></a></td>
+    <td align="left"><a href="README.md"><img src="images/docker.png" width="200px;" height="100px;" alt="docker" /><br /><b>DOCKER COMMANDS</b></a></td>
   </tr>
 </table>
 
