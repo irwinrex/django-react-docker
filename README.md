@@ -1,7 +1,7 @@
 <center>
 <table>
   <tr>
-    <td align="center"><a href="README.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
+    <td align="center"><a href="README.md"><img src="images/devops.png" width="200px;" height="200px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
   </tr>
 </table>
 </center>
@@ -21,7 +21,12 @@ This Repo Contains Dockerfiles and Kubernetes Files
 
 ## Linux Commands
 
-## --> Docker Run
+<table>
+  <tr>
+    <td align="left"><a href="README.md"><img src="images/docker.png" width="300px;" height="100px;" alt="docker" /><br /><b>DOCKER COMMANDS</b></a></td>
+  </tr>
+</table>
+
 ```
 git clone https://github.com/codeplays/devops.git
 cd devops
@@ -32,7 +37,11 @@ docker rm -f <container-name>
 ```
 This is a simple docker,uwsgi and django deployment application is running on 7000 port
 
-## --> Docker Compose #
+<table>
+  <tr>
+    <td align="left"><a href="README.md"><img src="images/docker-compose.png" width="100px;" height="120px;" alt="compose" /><br /><b>DOCKER COMPOSE COMMANDS</b></a></td>
+  </tr>
+</table>
 
 ```
 git clone https://github.com/codeplays/devops.git
@@ -49,9 +58,14 @@ docker compose down
 
 This is a docker,uwsgi,nginx and django deployment application is running on 80 port
 
-note : 
 
-# --> Docker Swarm #
+
+<table>
+  <tr>
+    <td align="left"><a href="README.md"><img src="images/swarm.png" width="100px;" height="90px;" alt="DOCKER SWARM" /><br /><b>DOCKER SWARM COMMANDS</b></a></td>
+  </tr>
+</table>
+
 
 ```
 git clone https://github.com/codeplays/devops.git
@@ -68,9 +82,11 @@ This is a docker swarm deployemnt. it contains docker,uwsgi,nginx and django. Th
 for the next build : 
 ```docker service update --image dj:new --force myapp_api```
 
-kubernetes
-Kubernetes
-## Kubernetes
+<table>
+  <tr>
+    <td align="left"><a href="README.md"><img src="images/kubernetes.png" width="100px;" height="100px;" alt="KUBERNETES" /><br /><b>KUBERNETES COMMANDS</b></a></td>
+  </tr>
+</table>
 
 k8 : minikube
 
