@@ -10,7 +10,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/home"
+        path: "/"
         backend:
           service:
             name: my-lb
