@@ -84,7 +84,13 @@ eval $(minikube docker-env)
 docker build -t dj:latest . --no-cache
 kubectl apply -f kubernetes/deployment.yml
 kubectl apply -f kubernetes/service.yml
+kubectl apply -f kubernetes/ingress.yml
+minikube addon enable ingress
+kubectl get pod -n ingress-nginx
+kubectl get pod -A | grep nginx --> check the container is running
+kubectl get ingress --> copy the address
+sudo nano /etc/hosts --> paste it and name it foo.bar.com (domain mapping in local)
+curl -L http://foo.bar.com
 ```
-Loading...😉
 
 You're Friendly DevOps
