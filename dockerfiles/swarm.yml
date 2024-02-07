@@ -46,6 +46,23 @@ services:
       - api
     networks:
       - django
+  app:
+    image: djapp:latest
+    ports:
+      - 3000:3000
+    deploy:
+      # placement:
+      #   constraints:
+      #     - node.hostname == irwinrex
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+    depends_on:
+      - api
+    networks:
+      - django
 
 networks:
   django:

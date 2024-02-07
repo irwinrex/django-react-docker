@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: ../
-    container_name: app
+    container_name: web_api
     volumes:
         - ../secrets.json:/app/secrets.json
     #   - ../django-local-efs:/var/www/django-local-efs
@@ -18,5 +18,15 @@ services:
     image: nginx:alpine
     ports:
       - 80:80
+    depends_on:
+      - api
+  
+  app:
+    build:
+      context: ../app
+      dockerfile: Dockerfile.app
+    container_name: web_app
+    ports:
+      - 3000:3000
     depends_on:
       - api
