@@ -1,10 +1,9 @@
-// Login.js
+// App.js
 
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 import success from './success.png';
-import failed from './failed.png';
 
 const Login = () => {
   const [username, setUsername] = useState('');
