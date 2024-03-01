@@ -36,6 +36,7 @@ CORS_ORIGIN_ALLOW_ALL=False
 # Application definition
 
 INSTALLED_APPS = [
+    "playcodeapp",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders'
 
 ]
@@ -132,13 +134,26 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #Rest Framework Configuration
+# REST_FRAMEWORK = {
+# 'DEFAULT_RENDERER_CLASSES': [
+#     # 'rest_framework.renderers.JSONRenderer',
+#     'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     # 'rest_framework.authentication.SessionAuthentication',
+#     # 'rest_framework.authentication.BasicAuthentication',
+# ],
+# # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
+# # 'DEFAULT_SCHEMA_CLASS':  'rest_framework.schemas.coreapi.AutoSchema',
+# }
 REST_FRAMEWORK = {
-'DEFAULT_RENDERER_CLASSES': [
-    'rest_framework.renderers.JSONRenderer',
-],
-'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
-'DEFAULT_SCHEMA_CLASS':  'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
+
 
 with open('secrets.json') as secrets_file:
     secrets = json.load(secrets_file)

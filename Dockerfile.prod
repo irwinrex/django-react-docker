@@ -57,7 +57,7 @@ COPY --from=builder /usr/local/bin/uwsgi  /usr/local/bin/uwsgi
 RUN addgroup --system python && adduser --system --group python
 
 # Install uWSGI
-RUN pip install uwsgi
+# RUN pip install uwsgi
 
 # Install additional Python packages and uWSGI-related packages
 RUN set -ex \
