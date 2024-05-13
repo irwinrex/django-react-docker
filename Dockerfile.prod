@@ -42,7 +42,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copy the rest of the application code into the container
-COPY django .
+COPY /django /app
 
 # Copy Binary files from the BASE Image
 # COPY --from=builder /usr/ /usr/

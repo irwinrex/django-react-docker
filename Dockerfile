@@ -19,7 +19,7 @@ COPY django/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
-COPY django /app
+COPY /django /app
 
 # create the app user
 RUN addgroup --system python && adduser --system --group python
