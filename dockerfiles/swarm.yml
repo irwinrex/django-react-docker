@@ -4,8 +4,8 @@ services:
   api:
     image: dj:latest
     volumes:
-        - ../secrets.json:/app/secrets.json
-    #   - ../django-local-efs:/var/www/django-local-efs
+        - ../django/secrets.json:/app/secrets.json
+    #   - ../django/django-local-efs:/var/www/django-local-efs
     # expose:
     #   - 7000
     ports:
