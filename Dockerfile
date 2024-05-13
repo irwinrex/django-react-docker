@@ -13,13 +13,13 @@ RUN rm -rvf /usr/local/lib/python3.10/site-packages/pip-23.0.1.dist-info
 RUN pip install --upgrade pip==23.3
 
 # Copy the requirements file into the container
-COPY requirements.txt .
+COPY django/requirements.txt .
 
 # Install the requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
-COPY . /app
+COPY django /app
 
 # create the app user
 RUN addgroup --system python && adduser --system --group python

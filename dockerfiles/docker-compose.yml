@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile.prod
     container_name: web_api
     volumes:
-        - ../secrets.json:/app/secrets.json
-    #   - ../django-local-efs:/var/www/django-local-efs
+        - ../django/secrets.json:/app/secrets.json
+    #   - ../django/django-local-efs:/var/www/django-local-efs
     ports:
       - 7000:7000
     # depends_on:
