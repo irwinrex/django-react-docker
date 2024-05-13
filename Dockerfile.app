@@ -2,10 +2,10 @@
 FROM node:20.11.0
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR reactApp /app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package.json ./
+COPY reactApp/package.json ./
 
 # Install app dependencies
 RUN npm install
