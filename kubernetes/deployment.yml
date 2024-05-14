@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: dj:latest # Replace with your Docker image name and tag
+        image: dockerrexxzz/dj:latest # Replace with your Docker image name and tag
         resources:
           requests:
             memory: "100Mi"   # Vertical scaling: Request 256Mi of memory
