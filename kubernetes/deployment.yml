@@ -35,6 +35,5 @@ spec:
             path: /home  # Adjust the path based on your application's health check endpoint
             port: 7000
           initialDelaySeconds: 15
-        restartPolicy: Always
 
 
