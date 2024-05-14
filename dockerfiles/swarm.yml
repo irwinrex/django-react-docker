@@ -4,8 +4,10 @@ services:
   api:
     image: dj:latest
     volumes:
-        - ../secrets.json:/app/secrets.json
-    #   - ../django-local-efs:/var/www/django-local-efs
+        - ../django/secrets.json:/app/secrets.json
+    #   - ../django/django-local-efs:/var/www/django-local-efs
+    # expose:
+    #   - 7000
     ports:
       - 7000:7000
     networks:
@@ -23,14 +25,21 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 10
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:7000/home']
-      interval: 5s
-      timeout: 5s
-      retries: 3
-      start_period: 1s
+    # healthcheck:
+    #   test: ['CMD', 'curl', '-f', 'http://localhost:7000/home']
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 3
+    #   start_period: 1s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
   nginx:
     image: djnginx:latest
+    volumes:
+      - /opt/logs/:/var/log/nginx/
     ports:
       - 80:80
     deploy:
@@ -42,10 +51,39 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     depends_on:
       - api
     networks:
       - django
+  # app:
+  #   image: djapp:latest
+  #   ports:
+  #     - 3000:3000
+  #   deploy:
+  #     # placement:
+  #     #   constraints:
+  #     #     - node.hostname == irwinrex
+  #     replicas: 1
+  #     restart_policy:
+  #       condition: on-failure
+  #       delay: 10s
+  #       max_attempts: 3
+  #     resources:
+  #       limits:
+  #         cpus: '2'   
+  #         memory: 3G
+  #       reservations:
+  #         cpus: '0.5'
+  #         memory: 1G
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - django
 
 networks:
   django:
