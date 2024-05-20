@@ -9,7 +9,7 @@
 #     - name: http
 #       protocol: TCP
 #       port: 80
-#       targetPort: 7000
+#       targetPort: API  # API is the port of the container
 #       nodePort: 30000
 #   type: NodePort
 
@@ -26,5 +26,5 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 7000
+      targetPort: API # API is the port of the container
   type: LoadBalancer
