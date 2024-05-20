@@ -15,6 +15,7 @@ spec:
       containers:
       - name: sample-app
         image: dockerrexxzz/dj:latest # Replace with your Docker image name and tag
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "100Mi"   # Vertical scaling: Request 256Mi of memory

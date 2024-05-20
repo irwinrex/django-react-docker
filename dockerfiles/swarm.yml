@@ -37,7 +37,8 @@ services:
         max-size: "10m"
         max-file: "3"
   nginx:
-    image: djnginx:latest
+    image: dockerrexxzz/dj:latest
+    imagePullPolicy: Always
     volumes:
       - /opt/logs/:/var/log/nginx/
     ports:
