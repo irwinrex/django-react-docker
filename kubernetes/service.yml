@@ -26,5 +26,5 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: API # API is the port of the container
+      targetPort: api # API is the port of the container
   type: LoadBalancer
