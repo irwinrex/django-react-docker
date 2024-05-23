@@ -13,7 +13,7 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
-WORKDIR /app
+# WORKDIR /app
 
 # Remove current pip version from python image
 RUN rm -rvf /usr/local/lib/python3.10/site-packages/pip-23.0.1.dist-info
@@ -44,20 +44,12 @@ WORKDIR /app
 # Copy the rest of the application code into the container
 COPY /django /app
 
-# Copy Binary files from the BASE Image
-# COPY --from=builder /usr/ /usr/
-
 # Copy Python libraries from the BASE Image
 COPY --from=builder /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
 COPY --from=builder /usr/local/bin/uwsgi  /usr/local/bin/uwsgi
-# RUN set -ex \
-#     # Create a non-root user
-#     && addgroup --system --gid 1001 appgroup \
-#     && adduser --system --uid 1001 --gid 1001 --no-create-home python \
-RUN addgroup --system python && adduser --system --group python
 
-# Install uWSGI
-RUN pip install uwsgi
+# Creating User
+RUN addgroup --system python && adduser --system --group python
 
 # Install additional Python packages and uWSGI-related packages
 RUN set -ex \
@@ -65,6 +57,7 @@ RUN set -ex \
     && apt-get install -y --no-install-recommends \
         libxml2-dev \
         libssl-dev \
+        curl \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
     
