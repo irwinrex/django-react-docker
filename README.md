@@ -50,7 +50,6 @@ docker compose up -d --build
 docker compose build --no-cache
 docker compose up -d
 curl -L localhost/home
-http://localhost:3000
 docker compose down
 ```
 
@@ -61,15 +60,11 @@ This is a docker,uwsgi,nginx and django deployment application is running on 80 
 ```
 git clone https://github.com/codeplays/devops.git
 cd devops
-docker build -t dj:latest .
-docker build -t djnginx:latest -f Dockerfile.nginx
-cd app
-docker build -t djapp:latest -f Dockerfile.app
+docker pull dockerrexxzz/dj:latest
+docker pull dockerrexxzz/djnginx:latest
 docker swarm init
 docker stack deploy -c dockerfiles/swarm.yml myapp
 curl -L localhost/home
-http://localhost:3000
-docker stack rm myapp
 ```
 This is a docker swarm deployemnt. it contains docker,uwsgi,nginx and django. The application is running on 80 port.but it have 2 replicas. even though you remove containers forcefully it will regenerate in a instance. it have healthcheck path , rollback feature, blue green deployemnt also.
 
@@ -85,7 +80,6 @@ git clone https://github.com/codeplays/devops.git
 cd devops
 minikube start
 eval $(minikube docker-env)
-docker build -t dj:latest . --no-cache
 kubectl apply -f kubernetes/deployment.yml
 kubectl apply -f kubernetes/service.yml
 kubectl apply -f kubernetes/ingress.yml
@@ -97,16 +91,10 @@ sudo nano /etc/hosts --> paste it and name it foo.bar.com (domain mapping in loc
 curl -L http://foo.bar.com
 ```
 
-## Try Logging in 
+## What's New
 
-React App : NodeJs
+Added Metrics , Autoscaling (HPA), ConfigMap in K8s ( No Guide provided yet )
+Added React App ( No Guide provided yet ) 
 
-```
-https:localhost:3000
-uname : playcode
-password : playcode
-```
-note : Only works for docker swarm deployment and docker compose deployment
-soon will be available in kubernetes
 
-You're Friendly DevOps
+Love to Contribute the Community <3
