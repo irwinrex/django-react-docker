@@ -23,6 +23,13 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 10
+      resources:
+          limits:
+            cpus: '0.5'   
+            memory: 0.5G
+          reservations:
+            cpus: '0.25'
+            memory: 0.2G
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost:7000/home/']
       interval: 5s
@@ -49,6 +56,13 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 3
+      resources:
+          limits:
+            cpus: '0.2'   
+            memory: 0.3G
+          reservations:
+            cpus: '0.1'
+            memory: 0.1G
     logging:
       driver: "json-file"
       options:
