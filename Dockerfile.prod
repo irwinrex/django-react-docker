@@ -57,6 +57,7 @@ RUN set -ex \
     && apt-get install -y --no-install-recommends \
         libxml2-dev \
         libssl-dev \
+        curl \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
     

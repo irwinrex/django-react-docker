@@ -2,14 +2,12 @@ version: "3.9"
 
 services:
   api:
-    image: dj:latest
+    image: dockerrexxzz/dj:latest
     volumes:
         - ../django/secrets.json:/app/secrets.json
     #   - ../django/django-local-efs:/var/www/django-local-efs
-    # expose:
-    #   - 7000
-    ports:
-      - 7000:7000
+    # ports:
+    #   - 7000:7000  # if this commented out it means , expose port is available by default in docker swarm
     networks:
       - django
     deploy:
@@ -25,20 +23,19 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 10
-    # healthcheck:
-    #   test: ['CMD', 'curl', '-f', 'http://localhost:7000/home']
-    #   interval: 5s
-    #   timeout: 5s
-    #   retries: 3
-    #   start_period: 1s
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:7000/home/']
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 1s
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
   nginx:
-    image: dockerrexxzz/dj:latest
-    imagePullPolicy: Always
+    image: dockerrexxzz/djnginx:latest
     volumes:
       - /opt/logs/:/var/log/nginx/
     ports:
