@@ -20,7 +20,7 @@ services:
         delay: 10s
         failure_action: rollback
       restart_policy:
-        condition: on-failure
+        condition: any
         delay: 5s
         max_attempts: 10
       resources:
@@ -72,30 +72,30 @@ services:
       - api
     networks:
       - django
-  # app:
-  #   image: djapp:latest
-  #   ports:
-  #     - 3000:3000
-  #   deploy:
-  #     # placement:
-  #     #   constraints:
-  #     #     - node.hostname == irwinrex
-  #     replicas: 1
-  #     restart_policy:
-  #       condition: on-failure
-  #       delay: 10s
-  #       max_attempts: 3
-  #     resources:
-  #       limits:
-  #         cpus: '2'   
-  #         memory: 3G
-  #       reservations:
-  #         cpus: '0.5'
-  #         memory: 1G
-  #   depends_on:
-  #     - api
-  #   networks:
-  #     - django
+  app:
+    image: dockerrexxzz/reactapp:latest
+    ports:
+      - 3000:3000
+    deploy:
+      # placement:
+      #   constraints:
+      #     - node.hostname == irwinrex
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '2'   
+          memory: 3G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    depends_on:
+      - api
+    networks:
+      - django
 
 networks:
   django:
