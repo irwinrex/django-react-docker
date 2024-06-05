@@ -25,6 +25,8 @@
 - KUBERNETES
 - REACT APP
 
+# USE LINUX ( UBUNTU )
+
 ## Docker Commands
 ```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git

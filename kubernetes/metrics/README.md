@@ -18,23 +18,10 @@ helm install metrics-server metrics-server/metrics-server --namespace kube-syste
 
 ## Metrics Terraform Intallation
 
+To install terraform, please follow the orginal documentation 
+url : https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
 ```
-provider "helm" {
-  kubernetes {
-    config_path = "~/.kube/config"
-  }
-}
-
-resource "helm_release" "metrics_server" {
-  name       = "metrics-server"
-  repository = "https://kubernetes-sigs.github.io/metrics-server/"
-  chart      = "metrics-server"
-  namespace  = "kube-system"
-
-  set {
-    name  = "args[0]"
-    value = "--kubelet-insecure-tls"
-  }
-}
-
+terraform init
+terraform apply
 ```
