@@ -80,6 +80,12 @@ docker service update --image dj:new --force myapp_name
 k8 : minikube
 
 ```
+cd kubernetes && sh kubectl.sh
+minikube start
+eval $(minikube docker-env)
+```
+
+```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git
 cd django-react-k8s-docker
 minikube start

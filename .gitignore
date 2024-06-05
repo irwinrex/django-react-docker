@@ -3,3 +3,5 @@ db.sqlite3
 venv
 .venv
 db_data/
+kubernetes/metrics/.terrafor*
+kubernetes/metrics/terra*
