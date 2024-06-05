@@ -1,7 +1,7 @@
 <center>
 <table>
   <tr>
-    <td align="center"><a href="README.md"><img src="images/devops.png" width="150px;" height="150px;" alt="DevOps" /><br /><b>DevOps</b></a></td>
+    <td align="center"><a href="README.md"><img src="images/django-react-k8s-docker.png" width="150px;" height="150px;" alt="django-react-k8s-docker" /><br /><b>django-react-k8s-docker</b></a></td>
   </tr>
 </table>
 </center>
@@ -25,10 +25,12 @@
 - KUBERNETES
 - REACT APP
 
+# USE LINUX ( UBUNTU )
+
 ## Docker Commands
 ```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git
-cd devops
+cd django-react-k8s-docker
 docker build -t dj:latest .
 docker run -p 7000:7000 -d dj:latest
 curl -L localhost:7000/home
@@ -42,7 +44,7 @@ This is a simple docker,uwsgi-django application is running on 7000 port
 
 ```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git
-cd devops/dockerfiles
+cd django-react-k8s-docker/dockerfiles
 docker compose up -d --build
 ```
 
@@ -60,7 +62,7 @@ This is a simple docker,uwsgi-django with react app application is running on 80
 
 ```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git
-cd devops
+cd django-react-k8s-docker
 docker pull dockerrexxzz/dj:latest
 docker pull dockerrexxzz/djnginx:latest
 docker swarm init
@@ -71,15 +73,23 @@ http://localhost:3000
 This is a docker swarm deployemnt. it contains docker,uwsgi,nginx,django and react app. The application is running on 80 port.but it have 2 replicas. even though you remove containers forcefully it will regenerate in a instance. it have healthcheck path , rollback feature, blue green deployemnt also.
 
 for the next build : 
-```docker service update --image dj:new --force myapp_name```
+```
+docker service update --image dj:new --force myapp_name
+```
 
 ## Kubernetes Commands
 
 k8 : minikube
 
 ```
+cd kubernetes && sh kubectl.sh
+minikube start
+eval $(minikube docker-env)
+```
+
+```
 git clone https://github.com/irwinrex/django-react-k8s-docker.git
-cd devops
+cd django-react-k8s-docker
 minikube start
 eval $(minikube docker-env)
 kubectl apply -f kubernetes/deployment.yml
@@ -93,11 +103,27 @@ sudo nano /etc/hosts --> paste it and name it foo.bar.com (domain mapping in loc
 curl -L http://foo.bar.com
 ```
 
+## Kubernetes Metrics
+
+```
+git clone https://github.com/irwinrex/django-react-k8s-docker.git
+kubectl apply -f kubernetes/metrics
+```
+
+#####        ######
+   My Suggestions 
+#####        ######
+
+Use Helm Repo or Terraform
+ **In a Subdirectory**: `[ClickHere](kubernetes/metrics/README.md)`.
+
+
 ## What's New
 
 ~ Documentation for React App for docker, docker-compose and swarm 
 ~ Preparing K8s for reactapp deployment
-~ Added Metrics , Autoscaling (HPA), ConfigMap in K8s ( No Guide provided yet )
+~ Added Metrics
+~ Autoscaling (HPA), ConfigMap in K8s ( No Guide provided yet )
 
 
 Love to Contribute the Community <3
