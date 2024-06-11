@@ -117,6 +117,16 @@ kubectl apply -f kubernetes/metrics
 Use Helm Repo or Terraform
  **In a Subdirectory**: `[ClickHere](kubernetes/metrics/README.md)`.
 
+Use k3s for EC2 instance
+```
+curl -sfL https://get.k3s.io | sh -
+
+mkdir ~/.kube/
+
+touch ~/.kube/config
+
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+```
 
 ## What's New
 
