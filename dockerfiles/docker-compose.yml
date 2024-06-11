@@ -25,12 +25,12 @@ services:
   #   depends_on:
   #     - api
 
-  app:
-    build:
-      context: ../
-      dockerfile: Dockerfile.app
-    container_name: web_app
-    ports:
-      - 3000:3000
-    depends_on:
-      - api
+  # app:
+  #   build:
+  #     context: ../
+  #     dockerfile: Dockerfile.app
+  #   container_name: web_app
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - api
