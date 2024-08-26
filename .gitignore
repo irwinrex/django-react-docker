@@ -6,3 +6,4 @@ db_data/
 kubernetes/metrics/.terrafor*
 kubernetes/metrics/terra*
 kubernetes/helm
+django/config/secrets.json
