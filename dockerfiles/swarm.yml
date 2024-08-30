@@ -3,8 +3,10 @@ version: "3.9"
 services:
   api:
     image: dockerrexxzz/dj:latest
-    volumes:
-        - ../django/secrets.json:/app/secrets.json
+    environment:
+      - bye=env
+    # volumes:
+    #     - ../django/secrets.json:/app/secrets.json
     #   - ../django/django-local-efs:/var/www/django-local-efs
     # ports:
     #   - 7000:7000  # if this commented out it means , expose port is available by default in docker swarm
