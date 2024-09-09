@@ -12,10 +12,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import json
 from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
+import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -134,7 +141,7 @@ REST_FRAMEWORK = {
 'DEFAULT_SCHEMA_CLASS':  'rest_framework.schemas.coreapi.AutoSchema',
 }
 
-with open('secrets.json') as secrets_file:
+with open('config/secrets.json') as secrets_file:
     secrets = json.load(secrets_file)
 
 
@@ -150,3 +157,6 @@ def parse(string):
     
     boolean_value = {'True': True, 'False': False}
     return boolean_value.get(string, string)
+
+print (f'{get_secret("hai")}')
+print (env('bye'))
