@@ -5,34 +5,39 @@ services:
     build:
       context: ../
       dockerfile: Dockerfile.prod
-    container_name: web_api
+    container_name: login_api
+    restart: unless-stopped
     environment:
       - bye=bye
-    # volumes:
+    volumes:
         # - ../django/config/secrets.json:/app/config/secrets.json
-    #   - ../django/django-local-efs:/var/www/django-local-efs
+        # - ../django/django-local-efs:/var/www/django-local-efs
+        - ../django:/app
     # ports:
     #   - 7000:7000
-    # depends_on:
-    #   - db
 
   nginx:
     volumes:
       - ../nginx/default.conf:/etc/nginx/conf.d/default.conf
       - /opt/logs/:/var/log/nginx/
     container_name: nginx
+    restart: always
     image: nginx:alpine
+    ports:
+      - 8000:80
+    depends_on:
+      - api
+      - app
+
+  app:
+    build:
+      context: ../
+      dockerfile: Dockerfile.appprod
+    container_name: login_app
+    restart: always
+    # volumes:
+    #   - ../reactApp:/app
     ports:
       - 80:80
     depends_on:
       - api
-
-  # app:
-  #   build:
-  #     context: ../
-  #     dockerfile: Dockerfile.app
-  #   container_name: web_app
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - api

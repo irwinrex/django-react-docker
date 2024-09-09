@@ -69,6 +69,8 @@ p, a {
 }
 
 .button {
+  border: none;
+  outline: none;
   background-color: rgb(53, 53, 53);
   padding: 10px;
   color: white;
