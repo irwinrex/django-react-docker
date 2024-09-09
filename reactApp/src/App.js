@@ -5,6 +5,8 @@ import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 import success from './success.png';
 
+const API_URL = process.env.REACT_APP_API_URL
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +17,7 @@ const Login = () => {
     try {
       console.log(username, password);
       // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint, localhost can be changed based on your configuration
-      const response = await axios.post('http://127.0.0.1/home/', {
+      const response = await axios.post(`${API_URL}/login/`, {
         username,
         password,
       });
@@ -23,11 +25,11 @@ const Login = () => {
       console.log(response.data)
       if (response.data) {
         setShowImage(true);
-      } else { debugger
+      } else { 
         console.log('Login failed');
         setIsError(true);
       }
-    } catch (error) { debugger
+    } catch (error) { 
       console.error('Login failed:', error.message);
       setIsError(true);
     }

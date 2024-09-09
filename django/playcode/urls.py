@@ -22,6 +22,7 @@ from playcode import views
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-        path('home/', views.HomeView.as_view()),
+    path("api/admin/", admin.site.urls),
+    path('api/home/', views.HomeView.as_view()),
+    path('api/login/', views.loginView.as_view()),
 ]
