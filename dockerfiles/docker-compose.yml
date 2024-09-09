@@ -24,7 +24,7 @@ services:
     restart: always
     image: nginx:alpine
     ports:
-      - 80:80
+      - 8000:80
     depends_on:
       - api
       - app
@@ -32,12 +32,12 @@ services:
   app:
     build:
       context: ../
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile.appprod
     container_name: login_app
     restart: always
     # volumes:
     #   - ../reactApp:/app
     ports:
-      - 3000:3000
+      - 80:80
     depends_on:
       - api

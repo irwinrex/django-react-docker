@@ -13,7 +13,9 @@ const Login = () => {
   const [showImage, setShowImage] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const handleSignIn = async () => {
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
     try {
       console.log(username, password);
       // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint, localhost can be changed based on your configuration
@@ -45,7 +47,7 @@ const Login = () => {
         />
       ) : (
         <div className="card">
-          <form>
+          <form onSubmit={handleSignIn}>
             <h1>Login Page</h1>
             {isError && <span style={{color:'red',fontSize:'12px', marginLeft:'60px'} }>
               invalid username or password 
@@ -62,9 +64,9 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <a className="button" href="#" onClick={handleSignIn}>
+            <button className="button" href="#" type="submit">
               Login
-            </a>
+            </button>
             <p>
               <input className="check" type="checkbox" />
               Remember me
@@ -74,7 +76,7 @@ const Login = () => {
             </p>
             <h5>
               Create account?
-              <a href="#"> Create</a>
+              <a href="#"> Forgot it !</a>
             </h5>
           </form>
         </div>

@@ -5,21 +5,21 @@ FROM node:20.11.0-alpine AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY /reactApp/package.json /reactApp/package-lock.json ./
+COPY /reactApp/package.json /app
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Copy the rest of the application code
-COPY /reactApp ./
+COPY /reactApp /app
 
 # Build the React app
 RUN npm run build
 
-# Use a lightweight Nginx image to serve the built app
+# Stage 2: Serve with Nginx
 FROM nginx:alpine
 
-# Copy the build files from the previous stage
+# Copy the built React app from the builder stage into Nginx's html directory
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # Expose port 80
