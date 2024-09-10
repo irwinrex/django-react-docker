@@ -1,7 +1,7 @@
 ###############
 # BUILD IMAGES #
 ###############
-FROM python:3.10 as builder
+FROM python:3.11 as builder
 
 RUN set -ex \
     # Upgrade the package index and install security upgrades
@@ -30,7 +30,7 @@ RUN set -ex \
 ###############
 # FINAL IMAGE #
 ###############
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 # Set the working directory
 WORKDIR /app
@@ -39,7 +39,7 @@ WORKDIR /app
 COPY /django /app
 
 # Copy Python libraries from the BASE Image
-COPY --from=builder /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
+COPY --from=builder /usr/local/lib/python3.11/ /usr/local/lib/python3.11/
 COPY --from=builder /usr/local/bin/uwsgi  /usr/local/bin/uwsgi
 
 # Creating User

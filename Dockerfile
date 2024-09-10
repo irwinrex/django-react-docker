@@ -1,16 +1,13 @@
 ###############
 # DOCKER IMAGES #
 ###############
-FROM python:3.10
+FROM python:3.11
 
 # Set the working directory
 WORKDIR /app
 
-# Remove current pip version from python image
-RUN rm -rvf /usr/local/lib/python3.10/site-packages/pip-23.0.1.dist-info
-
-# Upgrade pip to a specific version
-RUN pip install --upgrade pip==23.3
+# Upgrade pip
+RUN pip install --upgrade pip
 
 # Copy the requirements file into the container
 COPY django/requirements.txt .

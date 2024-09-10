@@ -146,7 +146,10 @@ REST_FRAMEWORK = {
 }
 
 with open('config/secrets.json') as secrets_file:
-    secrets = json.load(secrets_file)
+    try:
+        secrets = json.load(secrets_file)
+    except json.JSONDecodeError:
+        raise ImproperlyConfigured("Secrets file not valid JSON or missing")
 
 
 def get_secret(setting, secret=secrets):

@@ -21,6 +21,7 @@
 ```
 git clone https://github.com/irwinrex/django-react-docker.git
 cd django-react-docker
+cp django/config/secrets_template.json django/config/secrets.json
 docker build -t dj:latest .
 docker run -p 7000:7000 -d dj:latest
 curl -L localhost:7000/home
@@ -34,15 +35,10 @@ This is a simple docker,uwsgi-django application is running on 7000 port
 
 ```
 git clone https://github.com/irwinrex/django-react-docker.git
+cd django-react-docker
 cp django/config/secrets_template.json django/config/secrets.json
-cd django-react-docker/dockerfiles
+cd dockerfiles
 docker compose up -d --build
-```
-
-```
-cp django/config/secrets_template.json django/config/secrets.json
-docker compose build --no-cache
-docker compose up -d
 curl -L localhost:8000/home
 http://localhost
 docker compose down
